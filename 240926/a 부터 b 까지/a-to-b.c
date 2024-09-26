@@ -10,7 +10,9 @@ int main() {
         } else{
             a+=3;
         }
-        printf("%d ",a);
+        if(a<=b){
+            printf("%d ",a);
+        }
         
     }while(a<b);
     // 여기에 코드를 작성해주세요.
