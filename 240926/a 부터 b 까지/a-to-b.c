@@ -4,7 +4,7 @@ int main() {
     int a,b;
     scanf("%d %d",&a,&b);
     printf("%d ",a);
-    while(a<b){
+   do{
         if(a%2==1){
             a*=2;
         } else{
@@ -12,7 +12,7 @@ int main() {
         }
         printf("%d ",a);
         
-    }
+    }while(a<b);
     // 여기에 코드를 작성해주세요.
     return 0;
 }
