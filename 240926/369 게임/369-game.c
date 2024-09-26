@@ -5,7 +5,7 @@ int main() {
     scanf("%d",&n);
 for(int i=1; i<=n;i++){
     if(i==40||i==70){
-        printf("%d ",i)
+        printf("%d ",i);
     }
 
     if(i>=30&&i<=39 || i>=60&&i<=69 || i>=90&&i<=99){
