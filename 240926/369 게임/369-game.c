@@ -7,6 +7,7 @@ for(int i=1; i<=n;i++){
     if(i==40||i==70){
         printf("%d ",i);
     }
+    
 
     if(i>=30&&i<=39 || i>=60&&i<=69 || i>=90&&i<=99){
         printf("%d ",0);
@@ -19,7 +20,10 @@ for(int i=1; i<=n;i++){
         } else{printf("%d ",i);}
     }
     if( i>10&&i<=20 ){
-        if((i-10)%3==0){
+        if(i==12){
+            printf("%d ",0);
+        }
+        else if((i-10)%3==0){
             printf("%d ",0);
         } else{printf("%d ",i);}
     }
