@@ -7,7 +7,7 @@ int main() {
         if(i%2==1&&n%3==0)
             sum+=i;
     }
-    printf("%d",n);
+    printf("%d",sum);
     // 여기에 코드를 작성해주세요.
     return 0;
 }
