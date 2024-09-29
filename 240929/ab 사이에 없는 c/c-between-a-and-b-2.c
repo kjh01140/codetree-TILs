@@ -9,7 +9,7 @@ int main() {
             s=false;
         }
     }
-    printf(s?"YES":"NO");
+    printf(s==true?"YES":"NO");
     // 여기에 코드를 작성해주세요.
     return 0;
 }
