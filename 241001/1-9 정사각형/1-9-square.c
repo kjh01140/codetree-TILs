@@ -8,6 +8,9 @@ int main() {
         for(int j=0;j<n;j++){
             printf("%d",cnt);
             cnt++;
+            if(cnt==10){
+                cnt=1;
+            }
         }
         printf("\n");
     }
