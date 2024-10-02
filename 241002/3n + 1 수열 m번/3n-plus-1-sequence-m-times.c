@@ -17,7 +17,7 @@ int main() {
             cnt++;
             }
         }
-    printf("%d",cnt);
+    printf("%d\n",cnt);
     cnt=0;
     }
     // 여기에 코드를 작성해주세요.
