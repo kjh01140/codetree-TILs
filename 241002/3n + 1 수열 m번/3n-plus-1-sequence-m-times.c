@@ -1,26 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int n,m,cnt=0;
-    scanf("%d",&n);
-
-    for(int i=0;i<n;i++){
+    int m,n;
+    scanf("%d",&m);
+    for(int i=0;i<m;i++){
+        int cnt=0;
+        scanf("%d",&n);
         for(;;){
-            scanf("%d",&m);
-
-            if(m%2==0){
-            m/=2;
+            if(n%2==0){
+            n/=2;
             cnt++;
             } else{
-            m=m*3+1;
+            n=n*3+1;
             cnt++;
             }
-            if(m==1){
+            if(n==1){
+                printf("%d\n",cnt);
                 break;
             }
         }
-    printf("%d\n",cnt);
-    cnt=0;
     }
     // 여기에 코드를 작성해주세요.
     return 0;
