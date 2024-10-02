@@ -5,8 +5,7 @@ int main() {
     scanf("%d",&n);
 
     for(int i=0;i<n;i++){
-        while(m!=1){
-            
+        for(;;){
             scanf("%d",&m);
 
             if(m%2==0){
@@ -15,6 +14,9 @@ int main() {
             } else{
             m=m*3+1;
             cnt++;
+            }
+            if(m==1){
+                break;
             }
         }
     printf("%d\n",cnt);
