@@ -10,7 +10,7 @@ int main() {
 		for(int j = 0; j < i+1; j++) {
 			printf("%c", cnt);
 			cnt++;
-            if(cnt=='Z')
+            if(cnt=='Z'+1)
                 cnt='A';
 		}
 		printf("\n");
