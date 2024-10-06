@@ -15,6 +15,7 @@ int main() {
             continue;
         } else{
             max=i;
+            break;
         }
     }
     printf("%d",max);
