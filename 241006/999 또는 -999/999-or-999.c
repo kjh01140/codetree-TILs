@@ -7,7 +7,7 @@ int main() {
     for(int i=0;i<100;i++){
         scanf("%d",&arr[i]);
 
-        if(arr[i]==999||arr[i]==999){
+        if(arr[i]==999||arr[i]==-999){
             break;
         }
        if(arr[i]>max) max=arr[i];
