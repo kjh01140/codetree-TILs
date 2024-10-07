@@ -11,7 +11,8 @@ int main() {
     int min=100;
     for(int i=n;i>=1;i--){
         for(int j=i-1;j>=1;j--){
-            int gap=arr[i]-arr[j];
+            int gap=0;
+            gap=arr[i]-arr[j];
             if(gap<min) min =gap;
         }
     }
