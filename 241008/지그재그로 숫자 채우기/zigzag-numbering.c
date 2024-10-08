@@ -4,7 +4,7 @@ int main() {
     int n,m,num=0;
     scanf("%d %d",&n,&m);
 
-    int arr[n][n];
+    int arr[n][m];
 
     for(int j=0; j<m; j++){
         if(j%2==0){
