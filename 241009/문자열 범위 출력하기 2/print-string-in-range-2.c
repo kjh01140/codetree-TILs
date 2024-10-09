@@ -10,6 +10,7 @@ int main() {
     int len=strlen(arr);
 
     for(int i= len-1 ; i>=len-n; i--){
+        if(arr[i]=='\0') break;
         printf("%c",arr[i]);
        
     }
