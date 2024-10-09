@@ -4,11 +4,11 @@ int main() {
     int n;
     scanf("%d",&n);
 
-    char arr[20];
+    char arr[100];
     scanf("%s",arr);
 
     for(int i=1;i<n;i++){
-        char n_arr[20];
+        char n_arr[100];
         scanf("%s",n_arr);
         strcat(arr,n_arr);
 
