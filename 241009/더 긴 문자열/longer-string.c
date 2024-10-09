@@ -9,8 +9,10 @@ int main() {
     //printf("%s %d", strlen(str1)>strlen(str2) ? str1,strlen(str1):str2,strlen(str2));
     if( strlen(str1)>strlen(str2)){
         printf("%s %d",str1,strlen(str1));
-    } else{
+    } else if(strlen(str1)<strlen(str2)){
         printf("%s %d",str2,strlen(str2));
+    } else{
+        printf("same");
     }
     // 여기에 코드를 작성해주세요.
     return 0;
