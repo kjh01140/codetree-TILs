@@ -2,16 +2,16 @@
 #include <string.h>
 
 int main() {
-    char arr[100];
-    int n,cnt=0;
+    char arr[101];
+    int n;
     scanf("%s",arr);
     scanf("%d",&n);
 
     int len=strlen(arr);
 
-    for(int i= len-1 ; cnt<11; i--){
+    for(int i= len-1 ; i>=len-n; i--){
         printf("%c",arr[i]);
-        cnt++;
+       
     }
 
     // 여기에 코드를 작성해주세요.
