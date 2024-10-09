@@ -5,16 +5,10 @@ int main() {
     scanf("%s",str);
     int len = strlen(str);
     
-    if(len-1 %2 != 0){
-        for(int i=len-1; i>=0;i-=2){
+    for(int i= len-1; i>=0; i--){
+        if(i%2==1){
             printf("%c",str[i]);
         }
-
-    } else{
-        for(int i=len-2; i>=0;i-=2){
-            printf("%c",str[i]);
-        }
-
     }
     
     // 여기에 코드를 작성해주세요.
