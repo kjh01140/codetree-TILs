@@ -10,7 +10,7 @@ int main() {
     bool result=false;
 
 
-    for(int i=0; i < len_arr1 - len_arr2 ; i++){
+    for(int i=0; i <= len_arr1 - len_arr2 ; i++){
         if(arr1[i]==arr2[0]){
             for(int j=1; j< len_arr2; j++){
                 if(arr1[i+j]==arr2[j]){
