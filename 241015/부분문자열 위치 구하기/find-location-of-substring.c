@@ -4,7 +4,7 @@
 int main() {
     char arr1[1000],arr2[1000];
     scanf("%s",arr1);
-    scanf("%s",arr2);
+    scanf(" %s",arr2);
 
     int idx=-1, len_arr1 = strlen(arr1), len_arr2 = strlen(arr2);
     bool result=false;
