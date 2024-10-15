@@ -10,7 +10,7 @@ int main() {
             for(int j=i;j<len-1;j++){
                 s[j]=s[j+1];
             }
-
+            break;
         }
         
     }
