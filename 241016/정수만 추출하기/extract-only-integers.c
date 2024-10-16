@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 int main() {
-    char s1[8],s2[8],t1[8]="",t2[8]="";
+    char s1[9],s2[9],t1[9]="",t2[9]="";
     scanf("%s",s1);
     scanf("%s",s2);
     int len1=strlen(s1);
