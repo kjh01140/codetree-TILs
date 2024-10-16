@@ -14,10 +14,11 @@ int main() {
 
     int len=strlen(str),temp=str[0];
 
-    for(int i=1;i<len-1;i++){
+    if(len>1){for(int i=1;i<len-1;i++){
         str[i-1]=str[i];
     }
     str[len-1]=temp;
+    }
     printf("%s",str);
     // 여기에 코드를 작성해주세요.
     return 0;
