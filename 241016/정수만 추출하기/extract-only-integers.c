@@ -14,7 +14,7 @@ int main() {
         if(isdigit(s1[i])){
             t1[i]=s1[i];
         } else{
-            t1[i]='\0';
+            
             break;
         }
     }
@@ -23,7 +23,7 @@ int main() {
         if(isdigit(s2[i])){
             t2[i]=s2[i];
         } else{
-            t2[i]='\0';
+            
             break;
         }
     }
