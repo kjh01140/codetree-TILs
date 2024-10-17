@@ -15,6 +15,7 @@ int main() {
 
 
     bool test= false;
+
     for(int i=0;i<n1;i++){
         if(str1[i]==str2[0]){
             test = true;
@@ -22,7 +23,7 @@ int main() {
                 if(str1[i+j] != str2[j]){
                     test = false;
                     break;
-                }
+                } 
             }
         }
     }
