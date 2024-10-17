@@ -32,11 +32,11 @@ int main() {
 
         // 무한 루프 방지를 위해 cnt가 len을 초과하면 회전할 수 없는 경우로 처리
         if (cnt > len) {
-            printf("-1");  // 두 문자열이 같아질 수 없는 경우
-            return 0;
+            cnt=-1;  // 두 문자열이 같아질 수 없는 경우
+            break;
         }
     }
-
+    
     printf("%d", cnt);
     return 0;
 }
