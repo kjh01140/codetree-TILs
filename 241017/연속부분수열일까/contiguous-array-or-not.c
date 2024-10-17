@@ -26,6 +26,7 @@ int main() {
                 } 
             }
         }
+        if (test) break;
     }
     if(test){
         printf("Yes");
