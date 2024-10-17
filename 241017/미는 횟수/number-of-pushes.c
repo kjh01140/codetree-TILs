@@ -17,6 +17,10 @@ int main() {
 
         s2[0]=temp;
         if(strcmp(s1,s2)==0)break;
+
+        if(cnt>len) {
+            cnt=-1;
+            break;}
     }
     printf("%d",cnt);
     // 여기에 코드를 작성해주세요.
