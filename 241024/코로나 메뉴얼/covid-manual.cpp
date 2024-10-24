@@ -5,10 +5,11 @@ int main() {
     char a;
     int b,cnt=0;
 
-    for(int i=0;i<4;i++){
+    for(int i=0;i<3;i++){
         cin >> a >> b;
         if (b>=27 && a=='Y') cnt++;
     }
+
     if(cnt>=2){
         cout << "E";
     } else {
