@@ -9,7 +9,7 @@ int main() {
         char a;
         int b;
         cin >> a >> b;
-        if (b>=27 && a=='Y') cnt++;
+        if (b>=37 && a=='Y') cnt++;
     }
 
     if(cnt>=2){
