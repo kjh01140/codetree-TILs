@@ -2,10 +2,12 @@
 using namespace std;
 
 int main() {
-    char a;
-    int b,cnt=0;
+    
+    int cnt=0;
 
     for(int i=0;i<3;i++){
+        char a;
+        int b;
         cin >> a >> b;
         if (b>=27 && a=='Y') cnt++;
     }
