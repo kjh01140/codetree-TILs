@@ -8,9 +8,11 @@ int main() {
     for(int i=a ; i<b;i++){
         if(i%2==0){
             i+=3;
+            if(i>b) break;
             cout << i << " ";
         } else{
             i*=2;
+            if(i>b) break;
             cout << i << " ";
         }
     }
