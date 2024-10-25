@@ -4,16 +4,14 @@ using namespace std;
 int main() {
     int a,b;
     cin >> a>>b;
-    cout << a<< " ";
-    for(int i=a ; i<b;i++){
+    int i=a;
+    
+    while(i<=b){
+        cout << i<< " ";
         if(i%2==0){
             i+=3;
-            if(i>b) break;
-            cout << i << " ";
-        } else{
+        }else{
             i*=2;
-            if(i>b) break;
-            cout << i << " ";
         }
     }
 
