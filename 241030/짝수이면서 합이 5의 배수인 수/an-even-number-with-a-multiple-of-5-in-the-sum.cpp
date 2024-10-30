@@ -8,7 +8,7 @@ bool IsMagicNum(int n){
 int main() {
     int n;
     cin >> n;
-    if (IsMagicNum){
+    if (IsMagicNum(n)){
         cout << "Yes";
     } else{
         cout << "No";
