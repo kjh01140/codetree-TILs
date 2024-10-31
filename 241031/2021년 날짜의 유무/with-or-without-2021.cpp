@@ -2,6 +2,7 @@
 using namespace std;
 
 bool Func(int M, int D){
+    if(M<1 || M >12) return false;
     if(M<8){
         if(M==2){
             if(D<=28) return true;
