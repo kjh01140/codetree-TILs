@@ -5,26 +5,44 @@ bool Func(int M, int D){
     if(M<1 || M >12) return false;
 
     if(M==2){
-        if(D<=28)
-        {return true;
-        } else{return false;}
+        if(D<=28){
+            return true;
+        } else{
+            return false;
+        }
     }
 
     if(M<8){
         if(M%2==0){
-            if(D<=30) return true;
+            if(D<=30){
+            return true;
+        } else{
+            return false;
+        }
         }else{
-            if(D<=31) return true;
+            if(D<=31){
+            return true;
+        } else{
+            return false;
+        }
         }
 
     }else{
         if(M%2==0){
-            if(D<=31) return true;
+            if(D<=31){
+            return true;
+        } else{
+            return false;
+        }
         }else{
-            if(D<=30) return true;
+            if(D<=30){
+            return true;
+        } else{
+            return false;
+        }
         } 
 
-    return false;
+    
     }
 }
 
