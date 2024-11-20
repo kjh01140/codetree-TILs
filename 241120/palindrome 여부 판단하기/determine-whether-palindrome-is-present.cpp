@@ -16,7 +16,7 @@ bool CheckP(string *s, int length) {
 
 int main() {
     int length = 0;  // 입력된 문자열의 개수
-    string arr[100]; // 문자열 배열
+    string arr[101]; // 문자열 배열
 
     
     // 문자열 입력 받기
