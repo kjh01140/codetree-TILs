@@ -2,42 +2,38 @@
 #include <string>
 using namespace std;
 
-bool CheckP(string *s,int length){
-    
-    for(int i=0;i<length;i++){
-        if(*(s+i)==*(s+length-1-i)){
+// 회문 여부를 확인하는 함수 (기존 코드 유지)
+bool CheckP(string *s, int length) {
+    for (int i = 0; i < length; i++) {
+        if (*(s + i) == *(s + length - 1 - i)) {
             continue;
-        } else{
+        } else {
             return false;
-            
         }
     }
     return true;
-
 }
 
 int main() {
-    int length=0;
+    int length = 0;  // 입력된 문자열의 개수
+    string arr[100]; // 문자열 배열
 
-    string arr[100];
-    for(int i=0;i<100 ;i++){
+    
+    // 문자열 입력 받기
+    for (int i = 0; i < 100; i++) {
         cin >> arr[i];
-        if(arr[i]=="END"){
-            length = i;
+        if (arr[i] == "END") { // 종료 키워드 "END"를 만나면 입력 종료
+            length = i;        // 입력된 문자열의 개수를 저장
             break;
         }
     }
 
-
-
-    if(CheckP(arr,length)){
+    // CheckP 함수 호출
+    if (CheckP(arr, length)) {
         cout << "Yes";
-    } else{
+    } else {
         cout << "No";
     }
-    
-    
 
-    // 여기에 코드를 작성해주세요.
     return 0;
 }
