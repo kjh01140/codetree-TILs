@@ -4,12 +4,11 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    string str[100];
-    for(int i=0 ; i<n; i++){
-        cin >> str[i];
-    }
+    
+    string str;
+    
+    cin >> str;
+    
 
     sort(str.begin(),str.end());
 
