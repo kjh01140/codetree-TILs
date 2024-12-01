@@ -16,7 +16,7 @@ int main() {
     int n;
     cin >> n;
 
-    Info info[n];
+    Info info[100];
 
     for(int i=0; i<n; i++){
         string date, week, weather;
