@@ -24,6 +24,9 @@ public:
 
 bool cmp(Student a, Student b) {
     if(a.tall == b.tall) {
+        if(a.weight == b.weight){
+            return a.number<b.number; 
+        }
         return a.weight > b.weight; // 체중 기준 내림차순
     }
     return a.tall > b.tall; // 신장 기준 내림차순
