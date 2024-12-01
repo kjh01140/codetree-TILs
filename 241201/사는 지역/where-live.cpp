@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+
 using namespace std;
 
 class Student{
@@ -12,15 +12,15 @@ class Student{
             this-> region= region;
         }
 
-        bool operator<(const Student &other) const {
-        return name < other.name; // 이름을 사전순으로 비교
-    }
+        
+    
 
     Student () {}
 };
 int main() {
     int n;
     cin >> n;
+
     Student students[n];
     for(int i=0; i<n; i++){
         string name, address, region;
@@ -28,10 +28,16 @@ int main() {
         students[i]=Student(name,address,region);
     }
 
-    sort(students,students+n);
-    cout << "name " << students[n-1].name <<endl;
-    cout << "addr " << students[n-1].address<<endl;
-    cout << "city " << students[n-1].region;
+    int idx=0;
+    for(int i=1;i<n;i++){
+        if(students[i].name>students[idx].name){
+            idx=i;
+        }
+    }
+
+    cout << "name " << students[idx].name <<endl;
+    cout << "addr " << students[idx].address<<endl;
+    cout << "city " << students[idx].region;
     // 여기에 코드를 작성해주세요.
     return 0;
 }
