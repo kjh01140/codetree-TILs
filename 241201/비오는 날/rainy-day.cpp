@@ -23,16 +23,15 @@ int main() {
         cin >> date >> week >> weather;
         info[i] = Info( date, week, weather);
 
-    }
-    for(int i=0; i<n; i++){
-        
         if(info[i].weather == "Rain") {
             cout << info[i].date <<" ";
             cout << info[i].week <<" ";
             cout << info[i].weather;
             break;
         }
+
     }
+    
     // 여기에 코드를 작성해주세요.
     return 0;
 }
