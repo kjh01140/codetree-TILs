@@ -39,7 +39,9 @@ int main() {
     for(int i=0; i<5; i++){
         cout << students[i].name << " ";
         cout << students[i].height << " ";
-        cout << (double)students[i].weight << endl;
+        cout << fixed;
+        cout.precision(1);
+        cout << students[i].weight << endl;
     }
     cout << endl;
 
@@ -48,7 +50,9 @@ int main() {
     for(int i=0; i<5; i++){
         cout << students[i].name << " ";
         cout << students[i].height << " ";
-        cout << (double)students[i].weight << endl;
+        cout << fixed;
+        cout.precision(1);
+        cout << students[i].weight << endl;
     }
 
 
