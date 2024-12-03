@@ -13,6 +13,8 @@ class Data{
 };
 
 bool cmp(Data a, Data b){
+    if (a.input == b.input)
+        return a.output < b.output; // input이 같으면 입력 순서 유지
     return a.input < b.input;
 }
 bool cmp2(Data a, Data b){
