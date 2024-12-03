@@ -1,50 +1,50 @@
 #include <iostream>
+#include <vector>
 #include <algorithm>
 using namespace std;
-class Data{
-    public:
-        int input, output, idx;
-        Data(int input, int output, int idx){ //숫자 
-            this -> input=input;
-            this -> output=output;
-            this -> idx=idx;
-        }
-        Data(){}
+
+class Data {
+public:
+    int input, output, idx;
+    Data(int input, int output, int idx)
+        : input(input), output(output), idx(idx) {}
 };
 
-bool cmp(Data a, Data b){
+bool cmp(const Data& a, const Data& b) {
     return a.input < b.input;
 }
-bool cmp2(Data a, Data b){
+
+bool cmp2(const Data& a, const Data& b) {
     return a.output < b.output;
 }
-
 
 int main() {
     int n;
     cin >> n;
-    Data datas[n];
-    for(int i=0; i<n; i++){
+    vector<Data> datas;
+
+    // 데이터 입력
+    for (int i = 0; i < n; i++) {
         int input;
         cin >> input;
-        datas[i] = Data(input, i+1, 0);
-    }
-    sort(datas,datas+n,cmp);
-
-    for(int i=0; i<n; i++){
-        datas[i].idx=i+1;
-    }
-    sort(datas,datas+n,cmp2);
-
-    for(int i=0; i<n; i++){
-        cout << datas[i].idx<<" ";
+        datas.emplace_back(input, i + 1, 0);
     }
 
+    // 첫 번째 정렬: input 기준
+    sort(datas.begin(), datas.end(), cmp);
 
+    // 인덱스 설정
+    for (int i = 0; i < n; i++) {
+        datas[i].idx = i + 1;
+    }
 
+    // 두 번째 정렬: output 기준
+    sort(datas.begin(), datas.end(), cmp2);
 
+    // 결과 출력
+    for (const auto& data : datas) {
+        cout << data.idx << " ";
+    }
 
-    
-    // 여기에 코드를 작성해주세요.
     return 0;
 }
