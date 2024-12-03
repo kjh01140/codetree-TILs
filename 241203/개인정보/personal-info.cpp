@@ -24,7 +24,7 @@ bool cmp_w(Student a, Student b){
 int main() {
     string name;
     int height;
-    float weight;
+    double weight;
     
     Student students[5];
     for(int i=0; i<5; i++){
