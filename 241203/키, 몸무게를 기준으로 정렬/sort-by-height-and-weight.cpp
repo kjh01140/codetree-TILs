@@ -1,47 +1,49 @@
-#include <iostream>
+#include <iostream> 
 #include <algorithm>
+#include <string>
+
 using namespace std;
-class Person {
-    public:
-        string name;
-        int height, weight;
 
-        Person (string name, int height, int weight){
-            this -> name = name;
-            this -> height = height;
-            this -> weight = weight;
-        }
-
-        Person(){}
-
+class Student {
+public:
+    string name;
+    int height;
+    int weight;
+    Student(string name, int height, int weight) {
+        this->name = name;
+        this->height = height;
+        this->weight = weight;
+    }
+    Student() : name(""), height(0), weight(0) {}
 };
-bool cmp(Person a, Person b){
-    if(a.height == b.height){
-        return a.weight > b.weight;
-    } return a.height < b. height;
+
+// Custom Comparator
+bool Cmp(Student a, Student b) {
+    if (a.height != b.height)
+        return a.height < b.height;
+    return a.weight > b.weight;
 }
 
 int main() {
-    int n; cin >> n;
-    string name;
-    int height, weight;
+    int n;
+    cin >> n;
 
-    Person people[n];
-    for(int i=0; i<n; i++){
-        cin >> people[i].name;
-        cin >> people[i].weight;
-        cin >> people[i].height;
+    Student students[10] = {}; // 초기화 추가
 
+    for (int i = 0; i < n; i++) {
+        string name;
+        int height, weight;
+        cin >> name >> height >> weight;
+        students[i] = Student(name, height, weight);
     }
 
-    sort(people, people + n, cmp);
+    sort(students, students + n, Cmp);
 
-    for(int i=0; i<n; i++){
-        cout << people[i].name << " ";
-        cout << people[i].weight<< " ";
-        cout << people[i].height<< endl;
-
+    for (int i = 0; i < n; i++) {
+        cout << students[i].name << " ";
+        cout << students[i].height << " ";
+        cout << students[i].weight << endl;
     }
-    // 여기에 코드를 작성해주세요.
+
     return 0;
 }
