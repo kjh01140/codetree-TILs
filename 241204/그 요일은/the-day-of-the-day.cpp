@@ -17,6 +17,11 @@ int main() {
     int month = m1, day = d1;
 
     while (true) {
+        if (day > num_of_days[month]) {
+            day = 1;
+            month++;
+        }
+        
         if (month == m2 && day == d2) {
             elapsed_days++;
             break;
@@ -24,10 +29,7 @@ int main() {
         day++;
         elapsed_days++;
 
-        if (day > num_of_days[month]) {
-            day = 1;
-            month++;
-        }
+        
     }
 
     for(int i=0; i<=elapsed_days;i++){
