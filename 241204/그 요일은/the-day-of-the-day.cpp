@@ -7,7 +7,7 @@ int main() {
     cin >> m1 >> d1 >> m2 >> d2;
     cin >> A;
 
-    int num_of_days[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int num_of_days[13] = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     string weeks[7] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
     
@@ -17,23 +17,25 @@ int main() {
     int month = m1, day = d1;
 
     while (true) {
+        
+        if (month == m2 && day == d2) {
+            break;
+        }
+
+        day++;
+        elapsed_days++;
+
         if (day > num_of_days[month]) {
             day = 1;
             month++;
         }
-        
-        if (month == m2 && day == d2) {
-            elapsed_days++;
-            break;
-        }
-        day++;
-        elapsed_days++;
+
 
         
     }
 
     for(int i=0; i<=elapsed_days;i++){
-        if(weeks[(1+i%7)%7]==A){
+        if(weeks[(1+i)%7]==A){
             cnt++;
         }
     }
