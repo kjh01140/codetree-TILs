@@ -13,7 +13,7 @@ int main() {
     }
 
     int Max =Lines[0];
-    for(int i=1; i<=101; i++){
+    for(int i=1; i<=100; i++){
         if(Max < Lines[i]) Max = Lines[i];
     }
     cout << Max;
