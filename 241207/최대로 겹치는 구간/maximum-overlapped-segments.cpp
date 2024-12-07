@@ -5,15 +5,21 @@ int main() {
     int n; cin >>n;
     int Lines[201] = {};
 
-    for(int i=0; i<n; i++){
-        int x1,x2; cin >> x1 >> x2;
-        for(int j=x1; j<x2; j++){
-            Lines[j+100]++;
-        }
+    int x1[100],x2[100];
+    for(int i = 0; i < n; i++) {
+        cin >> x1[i] >> x2[i];
+        
+        // OFFSET을 더해줍니다.
+        x1[i] += 100;
+        x2[i] += 100;
     }
+    for(int i = 0; i < n; i++)
+        for(int j = x1[i]; j < x2[i]; j++)
+            Lines[j]++;
 
-    int Max =0;
-    for(int i=0; i<=201; i++){
+
+    int Max = Lines[0];
+    for(int i=1; i<=200; i++){
         if(Max < Lines[i]) Max = Lines[i];
     }
     cout << Max;
