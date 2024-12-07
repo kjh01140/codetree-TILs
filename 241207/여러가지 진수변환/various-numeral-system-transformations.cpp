@@ -6,7 +6,7 @@ int main() {
     cin >> N >> B;
 
     while(true){
-        if(N<2){
+        if(N<B){
             digits[cnt]=N;
             break;
         }
