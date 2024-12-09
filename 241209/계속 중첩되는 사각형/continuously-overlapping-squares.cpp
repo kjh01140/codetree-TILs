@@ -17,7 +17,7 @@ int main() {
         cin >> x1 >> y1 >> x2 >> y2;
         for(int j=x1; j<x2; j++ ){
             for(int k=y1; k<y2; k++){
-                Cood[j][k]=color[cnt%2];
+                Cood[j+OFFSET][k+OFFSET]=color[cnt%2];
                  
             }
         }
