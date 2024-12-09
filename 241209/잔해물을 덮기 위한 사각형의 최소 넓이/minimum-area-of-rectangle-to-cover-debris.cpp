@@ -25,10 +25,12 @@ int main() {
 
     int min_x = MaxC, max_x = 0;
     int min_y = MaxC, max_y = 0;
+    bool hasArea = false; // 영역 존재 유무
 
     for(int i=0; i<MaxC; i++){
         for(int j=0; j<MaxC; j++){
             if(Cood[i][j]==1){
+                hasArea = true;
                 if(i < min_x)min_x = i;
                 if(i > max_x)max_x = i;
                 if(j < min_y)min_y = j;
@@ -37,7 +39,15 @@ int main() {
         }
     }
 
-    cout << ((max_x+1)-min_x )*((max_y+1)-min_y);
+
+
+
+
+    if (hasArea) {
+        cout << (max_x - min_x + 1) * (max_y - min_y + 1) << endl;
+    } else {
+        cout << 0 << endl; // 남은 잔해물이 없으면 면적은 0
+    }
 
     
     // 여기에 코드를 작성해주세요.
