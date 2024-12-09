@@ -24,8 +24,12 @@ int main() {
 
         ans = max(ans, cnt);
     }
-
-    cout << ans;
+    if(ans == 1){
+        cout << 0;
+    } else{
+        cout << ans;
+    }
+    
     // 여기에 코드를 작성해주세요.
     return 0;
 }
