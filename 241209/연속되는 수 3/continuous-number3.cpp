@@ -13,7 +13,7 @@ int main() {
         cin >> arr[i];
     }
 
-    int ans = 0, cnt = 0;
+    int ans = 0, cnt = 1;
 
     for(int i=1; i<N; i++){
         if(arr[i-1]*arr[i]>0){
