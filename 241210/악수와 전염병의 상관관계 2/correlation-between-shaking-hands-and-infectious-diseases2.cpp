@@ -5,7 +5,6 @@ using namespace std;
 class input_list {
 public:
     int t, x, y;
-
     input_list(int t = 0, int x = 0, int y = 0) : t(t), x(x), y(y) {}
 };
 
@@ -14,24 +13,23 @@ bool cmp(const input_list &a, const input_list &b) {
 }
 
 int main() {
-    int N, K, P, T; // N: 개발자 수, K: 전염 가능한 최대 악수 횟수, P: 초기 감염자 번호, T: 악수 정보 개수
+    int N, K, P, T;
     cin >> N >> K >> P >> T;
 
-    bool infected[100] = {false}; // 각 개발자의 감염 상태를 저장
-    int infection_count[100] = {0}; // 각 개발자가 전염시킨 횟수를 저장
+    bool infected[100] = {false}; // 감염 여부
+    int infection_count[100] = {0}; // 각 개발자가 전염시킨 횟수
     infected[P - 1] = true; // 초기 감염자 설정
 
-    input_list inputs[250]; // 최대 T개의 악수 정보를 저장
+    input_list inputs[250]; // 악수 정보 저장
     for (int i = 0; i < T; i++) {
         int t, x, y;
         cin >> t >> x >> y;
         inputs[i] = input_list(t, x - 1, y - 1); // 0-based index로 변환
     }
 
-    sort(inputs, inputs + T, cmp); // 시간 순서대로 정렬
+    sort(inputs, inputs + T, cmp); // 시간순 정렬
 
     for (int i = 0; i < T; i++) {
-        int t = inputs[i].t; // 현재 시간
         int x = inputs[i].x; // x 개발자
         int y = inputs[i].y; // y 개발자
 
