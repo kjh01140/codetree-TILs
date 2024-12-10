@@ -42,14 +42,14 @@ int main() {
     }
 
     // 시간별 선두 상태 기록
-    for (int i = 1; i < min(time_A, time_B); i++) {
+    for (int i = 1; i < time_A; i++) {
         condition[i] = Race(pos_A[i], pos_B[i]);
     }
 
     // 선두 변경 횟수 계산
     int cnt = 0;
     int last_non_zero_condition = condition[1]; // 마지막 비동점 상태
-    for (int i = 2; i < min(time_A, time_B); i++) {
+    for (int i = 2; i < time_A; i++) {
         if (condition[i] == 0) {
             // 동점 상태에서는 선두 변경 없음
             continue;
