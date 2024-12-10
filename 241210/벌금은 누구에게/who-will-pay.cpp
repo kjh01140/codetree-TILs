@@ -12,17 +12,16 @@ int main() {
         int num;
         cin >> num;
         students[num]++;
+    }
 
-        for(int j=1; j<=i; j++){
-        if(students[j]>=K) {
+
+
+    for(int i=1; i<=N; i++){
+        if(students[i]>=K) {
             check = true;
-            cout << j; 
+            cout << i; 
             break;
-            }
-
-        if(check) break;
-        }
-
+        }    
     }
     if(check = false) cout << -1;
 
