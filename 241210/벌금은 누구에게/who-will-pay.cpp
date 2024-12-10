@@ -15,15 +15,18 @@ int main() {
     }
 
 
-
+    int first = 0;
     for(int i=1; i<=N; i++){
         if(students[i]>=K) {
             check = true;
-            cout << i; 
+            first = i;
             break;
         }    
     }
-    if(check = false) cout << -1;
+    if(check ) {
+        cout << first;}
+        else{
+            cout << -1;}
 
  
     
