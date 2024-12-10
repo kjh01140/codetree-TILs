@@ -13,9 +13,13 @@ int main() {
         students[num]++;
     }
 
+    bool check = false;
     for(int i=1; i<=N; i++){
-        if(students[i]>=K) {cout << i; break;}
+        if(students[i]>=K) {
+            check = true;
+            cout << i; break;}
     }
+    if(check = 0) cout << -1;
     // 여기에 코드를 작성해주세요.
     return 0;
 }
