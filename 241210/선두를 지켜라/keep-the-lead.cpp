@@ -61,6 +61,6 @@ int main() {
         }
     }
 
-    cout << cnt;
+    cout << cnt-1;
     return 0;
 }
