@@ -6,7 +6,7 @@ int main() {
     cin >> N >> M >> K;
     bool check = false;
 
-    int students[N+1] = {}; //{0, 1번학생, 2번학생, ... ,N번 학생}
+    int students[N+1] = {0,}; //{0, 1번학생, 2번학생, ... ,N번 학생}
 
     for(int i=1; i<=M; i++){
         int num;
@@ -18,15 +18,12 @@ int main() {
     int first = 0;
     for(int i=1; i<=N; i++){
         if(students[i]>=K) {
-            check = true;
-            first = i;
-            break;
+            cout << i;
+            return 0;
         }    
     }
-    if(check ) {
-        cout << first;}
-        else{
-            cout << -1;}
+    
+    cout << -1;
 
  
     
