@@ -14,6 +14,7 @@ int Race(int a, int b) {
 
 int N, M;
 int pos_A[Max_T + 1] = {0}, pos_B[Max_T + 1] = {0};
+int condition[Max_T] = {0}; // 시간별 선두 상태 저장
 
 int main() {
     cin >> N >> M;
@@ -40,15 +41,15 @@ int main() {
         }
     }
 
-    int condition[Max_T]={0};
-    for(int i=1; i<Max_T; i++){
-        condition[i] = Race(pos_A[i],pos_B[i]);
+    // 시간별 선두 상태 기록
+    for (int i = 1; i < min(time_A, time_B); i++) {
+        condition[i] = Race(pos_A[i], pos_B[i]);
     }
 
-
+    // 선두 변경 횟수 계산
     int cnt = 0;
     int last_non_zero_condition = condition[1]; // 마지막 비동점 상태
-    for (int i = 2; i < Max_T; i++) {
+    for (int i = 2; i < min(time_A, time_B); i++) {
         if (condition[i] == 0) {
             // 동점 상태에서는 선두 변경 없음
             continue;
@@ -60,7 +61,6 @@ int main() {
         }
     }
 
-     cout << cnt;
-
+    cout << cnt;
     return 0;
 }
