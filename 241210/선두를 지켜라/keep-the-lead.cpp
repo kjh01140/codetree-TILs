@@ -40,20 +40,27 @@ int main() {
         }
     }
 
-    // 선두 변경 횟수 계산
+    int condition[Max_T]={0};
+    for(int i=1; i<Max_T; i++){
+        condition[i] = Race(pos_A[i],pos_B[i]);
+    }
+
+
     int cnt = 0;
-    int condition = Race(pos_A[1], pos_B[1]); // 첫 상태 저장
-
-    for (int i = 2; i < min(time_A, time_B); i++) {
-        int new_condition = Race(pos_A[i], pos_B[i]);
-
-        // 선두가 변경되는 경우만 카운트
-        if (new_condition != condition && new_condition != 0) {
+    int last_non_zero_condition = condition[1]; // 마지막 비동점 상태
+    for (int i = 2; i < Max_T; i++) {
+        if (condition[i] == 0) {
+            // 동점 상태에서는 선두 변경 없음
+            continue;
+        }
+        if (condition[i] != last_non_zero_condition) {
+            // 비동점 상태가 달라졌을 때만 카운트
             cnt++;
-            condition = new_condition; // 새로운 상태 저장
+            last_non_zero_condition = condition[i];
         }
     }
 
-    cout << cnt;
+     cout << cnt;
+
     return 0;
 }
