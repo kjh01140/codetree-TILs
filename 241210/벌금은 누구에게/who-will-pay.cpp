@@ -4,9 +4,9 @@ using namespace std;
 int main() {
     int N, M ,K;
     cin >> N >> M >> K;
-    bool check = false;
+  
 
-    int students[N+1] = {0,}; //{0, 1번학생, 2번학생, ... ,N번 학생}
+    int students[101] = {0,}; //{0, 1번학생, 2번학생, ... ,N번 학생}
 
     for(int i=1; i<=M; i++){
         int num;
