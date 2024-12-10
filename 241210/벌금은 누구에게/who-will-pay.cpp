@@ -6,16 +6,16 @@ int main() {
     cin >> N >> M >> K;
   
 
-    int students[101] = {0,}; //{0, 1번학생, 2번학생, ... ,N번 학생}
+    int students[101] = {0}; //{0, 1번학생, 2번학생, ... ,N번 학생}
 
-    for(int i=1; i<=M; i++){
+    for(int i=0; i<M; i++){
         int num;
         cin >> num;
         students[num]++;
     }
 
 
-    int first = 0;
+    
     for(int i=1; i<=N; i++){
         if(students[i]>=K) {
             cout << i;
