@@ -2,19 +2,23 @@
 #include <algorithm>
 using namespace std;
 
-struct Handshake {
+class InputList {
+public:
     int t, x, y;
+    
+    // 기본 생성자 및 파라미터 생성자
+    InputList(int t = 0, int x = 0, int y = 0) : t(t), x(x), y(y) {}
 };
 
-bool compare(const Handshake &a, const Handshake &b) {
-    return a.t < b.t; // 시간순 정렬 기준
+bool compare(const InputList &a, const InputList &b) {
+    return a.t < b.t; // 시간순으로 정렬
 }
 
 int main() {
     int N, K, P, T;
     cin >> N >> K >> P >> T;
 
-    Handshake handshakes[250]; // 최대 250개의 악수 정보를 저장
+    InputList handshakes[250]; // 최대 250개의 악수 정보 저장
 
     // 악수 정보 입력
     for (int i = 0; i < T; i++) {
