@@ -2,60 +2,63 @@
 #include <algorithm>
 using namespace std;
 
-// 악수 정보를 저장하는 클래스
-class input_list {
-public:
+struct Handshake {
     int t, x, y;
-
-    // 생성자
-    input_list(int t = 0, int x = 0, int y = 0) : t(t), x(x), y(y) {}
 };
 
-// 정렬 기준 함수 (시간순 정렬)
-bool cmp(const input_list &a, const input_list &b) {
-    return a.t < b.t;
+bool compare(const Handshake &a, const Handshake &b) {
+    return a.t < b.t; // 시간순 정렬 기준
 }
 
 int main() {
-    int N, K, P, T; // N: 개발자 수, K: 전염 가능 횟수, P: 초기 감염자, T: 악수 정보 수
+    int N, K, P, T;
     cin >> N >> K >> P >> T;
 
-    bool infected[100] = {false}; // 각 개발자의 감염 여부 (0: 비감염, 1: 감염)
-    int infection_count[100] = {0}; // 각 개발자가 전염시킨 횟수
+    Handshake handshakes[250]; // 최대 250개의 악수 정보를 저장
 
-    infected[P - 1] = true; // 초기 감염자 설정 (0-based index)
-
-    input_list inputs[250]; // 악수 정보를 저장
+    // 악수 정보 입력
     for (int i = 0; i < T; i++) {
-        int t, x, y;
-        cin >> t >> x >> y;
-        inputs[i] = input_list(t, x - 1, y - 1); // 0-based index로 변환
+        cin >> handshakes[i].t >> handshakes[i].x >> handshakes[i].y;
     }
 
-    // 시간 순서대로 악수 정보를 정렬
-    sort(inputs, inputs + T, cmp);
+    // 감염 여부와 전염 가능 횟수를 저장하는 배열
+    int infected[101] = {0}; // 1-indexed, 초기값 0
+    int remain_transmission[101] = {0}; // 1-indexed, 초기값 0
 
-    // 각 악수 정보 처리
+    // 초기 감염 설정
+    infected[P] = 1;
+    remain_transmission[P] = K;
+
+    // 악수 정보를 시간순으로 정렬
+    sort(handshakes, handshakes + T, compare);
+
+    // 모든 악수 정보 처리
     for (int i = 0; i < T; i++) {
-        int x = inputs[i].x; // x 개발자
-        int y = inputs[i].y; // y 개발자
+        int t = handshakes[i].t;
+        int x = handshakes[i].x;
+        int y = handshakes[i].y;
 
-        // x가 감염 상태이고 전염 가능하면 y를 감염
-        if (infected[x] && infection_count[x] < K) {
-            infected[y] = true; // y 감염
-            infection_count[x]++; // x의 전염 횟수 증가
-        }
+        // x나 y가 감염되어 있고, 전염 가능한 악수 횟수가 남아 있는 경우
+        if ((infected[x] && remain_transmission[x] > 0) || (infected[y] && remain_transmission[y] > 0)) {
+            if (!infected[x]) { // x가 감염되지 않았다면
+                infected[x] = 1;
+                remain_transmission[x] = K;
+            } else if (infected[x] && remain_transmission[x] > 0) {
+                remain_transmission[x]--;
+            }
 
-        // y가 감염 상태이고 전염 가능하면 x를 감염
-        if (infected[y] && infection_count[y] < K) {
-            infected[x] = true; // x 감염
-            infection_count[y]++; // y의 전염 횟수 증가
+            if (!infected[y]) { // y가 감염되지 않았다면
+                infected[y] = 1;
+                remain_transmission[y] = K;
+            } else if (infected[y] && remain_transmission[y] > 0) {
+                remain_transmission[y]--;
+            }
         }
     }
 
-    // 최종 감염 상태 출력
-    for (int i = 0; i < N; i++) {
-        cout << (infected[i] ? 1 : 0);
+    // 결과 출력
+    for (int i = 1; i <= N; i++) {
+        cout << infected[i];
     }
     cout << endl;
 
