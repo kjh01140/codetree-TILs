@@ -10,7 +10,7 @@ public:
     InputList(int t = 0, int x = 0, int y = 0) : t(t), x(x), y(y) {}
 };
 
-bool compare(const InputList &a, const InputList &b) {
+bool cmp(const InputList &a, const InputList &b) {
     return a.t < b.t; // 시간순으로 정렬
 }
 
@@ -18,11 +18,11 @@ int main() {
     int N, K, P, T;
     cin >> N >> K >> P >> T;
 
-    InputList handshakes[250]; // 최대 250개의 악수 정보 저장
+    InputList inputs[250]; // 최대 250개의 악수 정보 저장
 
     // 악수 정보 입력
     for (int i = 0; i < T; i++) {
-        cin >> handshakes[i].t >> handshakes[i].x >> handshakes[i].y;
+        cin >> inputs[i].t >> inputs[i].x >> inputs[i].y;
     }
 
     // 감염 여부와 전염 가능 횟수를 저장하는 배열
@@ -34,13 +34,13 @@ int main() {
     remain_transmission[P] = K;
 
     // 악수 정보를 시간순으로 정렬
-    sort(handshakes, handshakes + T, compare);
+    sort(inputs, inputs + T, cmp);
 
     // 모든 악수 정보 처리
     for (int i = 0; i < T; i++) {
-        int t = handshakes[i].t;
-        int x = handshakes[i].x;
-        int y = handshakes[i].y;
+        int t = inputs[i].t;
+        int x = inputs[i].x;
+        int y = inputs[i].y;
 
         // x나 y가 감염되어 있고, 전염 가능한 악수 횟수가 남아 있는 경우
         if ((infected[x] && remain_transmission[x] > 0) || (infected[y] && remain_transmission[y] > 0)) {
