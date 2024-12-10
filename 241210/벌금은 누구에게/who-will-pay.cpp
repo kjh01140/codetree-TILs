@@ -5,25 +5,24 @@ int main() {
     int N, M ,K;
     cin >> N >> M >> K;
   
-
+    
     int students[101] = {0}; //{0, 1번학생, 2번학생, ... ,N번 학생}
 
     for(int i=0; i<M; i++){
         int num;
         cin >> num;
         students[num]++;
+        for(int j=1; j<=N; j++){
+            if(students[j] >= K){
+                cout << j;
+                return 0;
+            }
+        }
     }
 
 
-    
-    for(int i=1; i<=N; i++){
-        if(students[i]>=K) {
-            cout << i;
-            return 0;
-        }    
-    }
-    
     cout << -1;
+    
 
  
     
