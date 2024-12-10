@@ -13,7 +13,7 @@ int Race(int a, int b){
 }
 
 int N, M;
-int pos_A[Max_T + 1], pos_B[Max_T + 1];
+int pos_A[Max_T + 1] = {0}, pos_B[Max_T + 1]= {0};
 
 int main() {
     cin >> N >> M;
@@ -42,9 +42,10 @@ int main() {
     int condition = Race(pos_A[1],pos_B[1]); // 첫 선두 선정;
 
     for(int i=2; i<Max_T; i++){
-        if( condition * Race(pos_A[i],pos_B[i]) <0 ){
-            cnt++;
-            condition = Race(pos_A[i],pos_B[i]);
+        int new_condition = Race(pos_A[i], pos_B[i]);
+        if (condition != new_condition && new_condition != 0) {
+            cnt++; // 선두가 바뀔 때만 카운트
+            condition = new_condition;
         }
     }
     cout << cnt;
