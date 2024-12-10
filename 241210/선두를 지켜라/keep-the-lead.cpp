@@ -24,7 +24,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         int v, t;
         cin >> v >> t;
-        while (t-- && time_A <= Max_T) {
+        while (t--) {
             pos_A[time_A] = pos_A[time_A - 1] + v;
             time_A++;
         }
@@ -35,7 +35,7 @@ int main() {
     for (int i = 0; i < M; i++) {
         int v, t;
         cin >> v >> t;
-        while (t-- && time_B <= Max_T) {
+        while (t--) {
             pos_B[time_B] = pos_B[time_B - 1] + v;
             time_B++;
         }
@@ -46,7 +46,7 @@ int main() {
         condition[i] = Race(pos_A[i], pos_B[i]);
     }
 
-    // 선두 변경 횟수 계산
+    /* 선두 변경 횟수 계산
     int cnt = 0;
     int last_non_zero_condition = condition[1]; // 마지막 비동점 상태
     for (int i = 2; i < time_A; i++) {
@@ -59,8 +59,22 @@ int main() {
             cnt++;
             last_non_zero_condition = condition[i];
         }
-    }
+    }*/
 
-    cout << cnt-1;
+    int leader = 0, cnt = 0;
+    for(int i = 1; i < time_A; i++){
+        if(Race(pos_A[i],pos_B[i]) == 1){
+            if(leader == -1) cnt++;
+
+            leader = 1;
+        } else if(Race(pos_A[i],pos_B[i]) == -1){
+            if(leader == 1) cnt++;
+            
+            leader = -1; 
+        }
+    }
+    
+
+    cout << cnt;
     return 0;
 }
