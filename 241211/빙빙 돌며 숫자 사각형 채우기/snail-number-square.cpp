@@ -5,7 +5,7 @@ int arr[100][100]={};
 int n,m;
 
 bool InRange(int x, int y) {
-    return (0 <= x && x < n && 0 <= y && y < n);
+    return (0 <= x && x < n && 0 <= y && y < m);
 }
 
 
