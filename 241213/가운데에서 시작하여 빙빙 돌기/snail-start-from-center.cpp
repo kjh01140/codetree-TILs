@@ -2,7 +2,7 @@
 using namespace std;
 
 int n;
-int arr[101][101] = {};
+int arr[102][102] = {};
 int num = 1;
 int x = 0, y = 0, dir = 0; // 방향 초기값: 오른쪽으로 시작
 
