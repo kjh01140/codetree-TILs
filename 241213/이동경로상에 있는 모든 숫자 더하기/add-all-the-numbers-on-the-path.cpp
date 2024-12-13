@@ -26,7 +26,7 @@ void Move(int &x, int &y, char dir_input){
             x = nx;
             y = ny;
             cnt+= arr[x][y];
-            arr[x][y] = 0;    // 값을 한 번만 합산하도록 초기화
+            //arr[x][y] = 0;    // 값을 한 번만 합산하도록 초기화
         }
 
     } else if (dir_input == 'L'){
