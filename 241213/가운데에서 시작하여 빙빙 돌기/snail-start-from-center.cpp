@@ -6,7 +6,8 @@ int arr[102][102] = {};
 int num = 1;
 int x = 0, y = 0, dir = 0; // 방향 초기값: 오른쪽으로 시작
 
-int dx[4] = {0, 1, 0, -1};
+// 방향: 오른쪽, 위, 왼쪽, 아래
+int dx[4] = {0, -1, 0, 1};
 int dy[4] = {1, 0, -1, 0};
 
 bool InRange(int x, int y) {
@@ -22,7 +23,7 @@ void Move(int &x, int &y, int &dir, int &num) {
 
         // 범위를 벗어나거나 이미 채워진 경우 방향 변경
         if (!InRange(nx, ny)) {
-            dir = (dir + 3) % 4; // 다음 방향으로 변경
+            dir = (dir + 1) % 4; // 다음 방향으로 변경
             nx = x + dx[dir];
             ny = y + dy[dir];
         }
@@ -33,9 +34,9 @@ void Move(int &x, int &y, int &dir, int &num) {
 }
 
 int main() {
-    cin >> n ;
-    x = (n-1)/2;
-    y = (n-1)/2;
+    cin >> n;
+    x = (n - 1) / 2; // 시작 위치: 가운데
+    y = (n - 1) / 2;
     Move(x, y, dir, num);
 
     for (int i = 0; i < n; i++) {
