@@ -15,7 +15,7 @@ bool InRange(int x, int y) {
 void Move(int &x, int &y, int &dir, int &num) {
     while (num <= n * m) {
         arr[x][y] = num++; // 현재 위치에 숫자 채우기
-
+        if(num >26) num =1;
         int nx = x + dx[dir];
         int ny = y + dy[dir];
 
