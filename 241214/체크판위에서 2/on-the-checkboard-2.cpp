@@ -1,45 +1,43 @@
 #include <iostream>
 using namespace std;
-char arr[16][16] = {};
 
-int cnt = 0;
+char arr[16][16] = {};
+int result = 0;
 
 int main() {
-    int R, C; cin >> R >> C;
+    int R, C;
+    cin >> R >> C;
 
-    int x=0, y=0; //좌상단
-
-    for(int i=0; i<R; i++){ // 색칠
-        for(int j=0; j<C ;j++ ){
-            cin >> arr[i][j];    
+    // 직사각형 색 정보 입력
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            cin >> arr[i][j];
         }
     }
 
+    // 첫 번째 점프 탐색
+    for (int i1 = 1; i1 < R - 1; i1++) {  // 첫 번째 점프의 행 (도착 지점 제외)
+        for (int j1 = 1; j1 < C - 1; j1++) {  // 첫 번째 점프의 열 (도착 지점 제외)
+            if (arr[i1][j1] != arr[0][0]) {  // 첫 번째 점프 조건: 색이 다름
 
-    char color = arr[0][0];  // 좌상단 색깔
-    if(color == arr[R-1][C-1]){ cout << 0; return 0;} //필연적으로 불가능한 조건
-    
-    for(int i=x+1; i<R-2; i++){
-        for(int j=y+1; j<C-2; j++){
-            if(arr[i][j] != color ){
-                x = i; 
-                y = j;
-                color = arr[i][j];
+                // 두 번째 점프 탐색
+                for (int i2 = i1 + 1; i2 < R; i2++) {  // 두 번째 점프의 행
+                    for (int j2 = j1 + 1; j2 < C; j2++) {  // 두 번째 점프의 열
+                        if (arr[i2][j2] != arr[i1][j1]) {  // 두 번째 점프 조건: 색이 다름
 
-                for(int k=x+1; k<R-1; k++){
-                    for(int l=y+1; l<C-1; l++){
-                        if(arr[k][l] != color) cnt++;
+                            // 도착 지점 확인
+                            if (i2 == R - 1 && j2 == C - 1) {
+                                result++;  // 유효한 경로 카운트
+                            }
+                        }
                     }
                 }
-
             }
         }
     }
-    cout << cnt;
 
+    // 결과 출력
+    cout << result << endl;
 
-
-
-    // 여기에 코드를 작성해주세요.
     return 0;
 }
