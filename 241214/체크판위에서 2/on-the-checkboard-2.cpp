@@ -1,43 +1,48 @@
 #include <iostream>
 using namespace std;
-
 char arr[16][16] = {};
-int R, C;
+
 int cnt = 0;
 
-void dfs(int x, int y, int jumps, char prev_color) {
-    // 현재 점프 횟수가 2를 초과하면 종료
-    if (jumps > 2) return;
-
-    // 도착 지점에 도달한 경우
-    if (x == R - 1 && y == C - 1) {
-        if (jumps == 2) cnt++;
-        return;
-    }
-
-    // 가능한 점프 탐색
-    for (int nx = x + 1; nx < R; nx++) {
-        for (int ny = y + 1; ny < C; ny++) {
-            if (arr[nx][ny] != prev_color) { // 색이 달라야 점프 가능
-                dfs(nx, ny, jumps + 1, arr[nx][ny]);
-            }
-        }
-    }
-}
-
 int main() {
-    cin >> R >> C;
+    int R, C; cin >> R >> C;
 
-    for (int i = 0; i < R; i++) {
-        for (int j = 0; j < C; j++) {
+    for(int i=0; i<R; i++) {
+        for(int j=0; j<C; j++) {
             cin >> arr[i][j];
         }
     }
 
-    // 시작점에서 탐색 시작
-    dfs(0, 0, 0, arr[0][0]);
+    char start_color = arr[0][0];
+    char end_color = arr[R-1][C-1];
+    if (start_color == end_color) {
+        cout << 0;
+        return 0;
+    }
 
-    cout << cnt << endl;
+    // 첫 번째 점프
+    for (int i = 1; i < R-1; i++) {
+        for (int j = 1; j < C-1; j++) {
+            if (arr[i][j] != start_color) {
+                // 두 번째 점프
+                for (int k = i + 1; k < R; k++) {
+                    for (int l = j + 1; l < C; l++) {
+                        if (arr[k][l] != arr[i][j]){
+                            for( int q = k+1; q<R; q++){
+                                for(int w = l+1; w<C; w++){
+                                    if(q==R-1 && w == C-1) cnt ++;
+                                }
+                            }
 
+                        }
+
+                        
+                    }
+                }
+            }
+        }
+    }
+
+    cout << cnt;
     return 0;
 }
