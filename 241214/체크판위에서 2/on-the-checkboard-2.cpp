@@ -14,8 +14,10 @@ int main() {
             cin >> arr[i][j];    
         }
     }
+
+
     char color = arr[0][0];  // 좌상단 색깔
-    
+    char last_color = arr[R-1][C-1];
     for(int i=x+1; i<R-1; i++){
         for(int j=y+1; j<C-1; j++){
             if(arr[i][j] != color ){
@@ -25,7 +27,7 @@ int main() {
 
                 for(int k=x+1; k<R-1; k++){
                     for(int l=y+1; l<C-1; l++){
-                        if(arr[k][l] != color) cnt++;
+                        if(arr[k][l] != color && arr[k][l] != last_color) cnt++;
                     }
                 }
 
