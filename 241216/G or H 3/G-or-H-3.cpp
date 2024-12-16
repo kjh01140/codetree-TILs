@@ -8,7 +8,7 @@ int max_n = 0;
 int main() {
 
     int N, K; cin >> N >> K;
-    int max_n = 0;
+    
     for(int i=0; i<N; i++){
         int n;
         char input; 
