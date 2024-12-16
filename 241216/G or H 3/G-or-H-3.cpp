@@ -15,7 +15,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         int n;
         char input;
-        cin >> n >> input;
+        cin >> n >> input; //1-indexed
         max_n = max(max_n, n); // 최대 위치 갱신
         arr[n] = (input == 'G') ? 1 : 2; // G는 1점, H는 2점
     }
@@ -24,7 +24,7 @@ int main() {
     int current_sum = 0;
 
     // 첫 번째 윈도우 계산
-    for (int i = 1; i <= K && i <= max_n; i++) {
+    for (int i = 1; i <= K+1 && i <= max_n; i++) {
         current_sum += arr[i];
     }
 
