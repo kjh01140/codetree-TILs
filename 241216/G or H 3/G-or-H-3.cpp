@@ -16,9 +16,9 @@ int main() {
          max_n = max(max_n, n);
 
         if(input == 'G'){
-            arr[n] = 1;
+            arr[n-1] = 1;
         } else {
-            arr[n] = 2;
+            arr[n-1] = 2;
         }
     }
 
