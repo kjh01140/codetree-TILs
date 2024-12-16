@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-int arr[10001] = {}; // 위치는 최대 10,000이므로 배열 크기를 10,001로 선언
+int arr[10001] = {0,}; // 위치는 최대 10,000이므로 배열 크기를 10,001로 선언
 int ans = 0;
 
 int main() {
