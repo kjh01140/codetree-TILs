@@ -20,7 +20,7 @@ int main() {
         arr[n] = (input == 'G') ? 1 : 2; // G는 1점, H는 2점
     }
 
-    for(int i=0; i<=max_n - K; i++){
+    for(int i=0; i<=10001 - K; i++){
         int sum = 0;
         for(int j=i; j<=i+K; j++){
             sum += arr[j];
