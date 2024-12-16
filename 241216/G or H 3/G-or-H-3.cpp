@@ -20,20 +20,12 @@ int main() {
         arr[n] = (input == 'G') ? 1 : 2; // G는 1점, H는 2점
     }
 
-    // 슬라이딩 윈도우 방식으로 최대 점수 계산
-    int current_sum = 0;
-
-    // 첫 번째 윈도우 계산
-    for (int i = 1; i <= K+1 && i <= max_n; i++) {
-        current_sum += arr[i];
-    }
-
-    ans = current_sum;
-
-    // 윈도우를 이동하며 점수 갱신
-    for (int i = 2; i <= max_n - K + 1; i++) { // 제한범위의 끝 인덱스 : i+K-1 <= max_n 이항정리 --> i <= max_n-K+1
-        current_sum = current_sum - arr[i - 1] + arr[i + K - 1];
-        ans = max(ans, current_sum);
+    for(int i=1; i<=max_n - K; i++){
+        int sum = 0;
+        for(int j=i; j<=i+K; j++){
+            sum += arr[j];
+        }
+        ans = max(ans, sum);
     }
 
     cout << ans << endl;
