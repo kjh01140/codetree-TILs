@@ -1,50 +1,53 @@
 #include <iostream>
 using namespace std;
-int A[100] = {};
-int B[100] = {};
-int N, M, cnt = 0;
 
-int Num[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-int Num_B[10] = {0,}; //즉 순서는 중요치 않고 쓰인 숫자들의 갯수가 중요함
+const int MAX_SIZE = 100;
+const int MAX_NUM = 100;
 
+int A[MAX_SIZE] = {}; // 수열 A 저장
+int B[MAX_SIZE] = {}; // 수열 B 저장
+int N, M, cnt = 0;    // N: A의 크기, M: B의 크기, cnt: 결과 카운트
 
-bool Check(int idx, int A[100], int B[100]){ // idx는 시작지점
-    int Num_A[10]={0,}; //초기화
+int Num_B[MAX_NUM + 1] = {0}; // B의 숫자 빈도 저장
 
-    for(int i=0; i<M; i++){
-        for(int j=0; j<M; j++){ 
-            if(A[idx + i] == B[j]) Num_A[B[j]]++;
-        }
-        
+// 시작점 idx에서 길이 M의 부분 수열이 B와 같은지 검사
+bool Check(int idx) {
+    int Num_A[MAX_NUM + 1] = {0}; // 부분 수열의 숫자 빈도 저장
 
+    // A의 부분 수열 빈도 계산
+    for (int i = 0; i < M; i++) {
+        Num_A[A[idx + i]]++;
     }
-    for(int i=0; i<10; i++){
-        if(Num_A[i] != Num_B[i]) return false;
+
+    // B의 숫자 빈도와 비교
+    for (int i = 0; i <= MAX_NUM; i++) {
+        if (Num_A[i] != Num_B[i]) return false;
     }
+
     return true;
 }
 
 int main() {
+    // 입력: N과 M
     cin >> N >> M;
 
-    for(int i=0; i<N; i++){
+    // 입력: 수열 A
+    for (int i = 0; i < N; i++) {
         cin >> A[i];
     }
-    for(int i=0; i<M; i++){
+
+    // 입력: 수열 B 및 숫자 빈도 계산
+    for (int i = 0; i < M; i++) {
         cin >> B[i];
-        for(int j=0; j<10; j++){
-            if(B[i] == Num[j])Num_B[j]++;
-        }
+        Num_B[B[i]]++;
     }
 
-    
-
-
-    for(int i=0; i<=N-M; i++){ // 시작지점 기준
-        if(Check(i, A, B))cnt++;
+    // A의 부분 수열 검사
+    for (int i = 0; i <= N - M; i++) {
+        if (Check(i)) cnt++;
     }
 
+    // 출력: 결과 카운트
     cout << cnt;
-    // 여기에 코드를 작성해주세요.
     return 0;
 }
