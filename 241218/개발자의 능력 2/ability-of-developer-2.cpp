@@ -4,7 +4,7 @@
 using namespace std;
 int arr[6];
 int sum = 0;  // 인수들의 총합
-int ans = 0;
+int ans = 1000000;
 
 int main() {
     for(int i=0; i<6; i++){
