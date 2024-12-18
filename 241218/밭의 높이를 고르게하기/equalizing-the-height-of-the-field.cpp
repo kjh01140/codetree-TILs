@@ -10,8 +10,8 @@ int main() {
 
     for(int i=0; i<N; i++) cin >> arr[i];
 
-    for(int i=1; i<=100; i++){
-        if(i+ T-1 <= 100){
+    for(int i=0; i<N; i++){
+        if(i+ T-1 <= N-1){
             int sum = 0;
             for(int j=i; j<i+T; j++){
                 sum+=abs(arr[j] - H);
