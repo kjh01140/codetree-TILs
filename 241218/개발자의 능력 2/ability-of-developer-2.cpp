@@ -4,7 +4,7 @@
 using namespace std;
 int arr[6];
 int sum = 0;  // 인수들의 총합
-int ans = 1000000;
+int ans = 10000000;
 
 int main() {
     for(int i=0; i<6; i++){
@@ -15,7 +15,6 @@ int main() {
     for(int i=0; i<6; i++){
         for(int j=0; j<6; j++){// 첫번째 짝 선정
             if(i!=j){
-
                 for(int k=0; k<6; k++){
                     for(int l=0; l<6; l++){
                         if(k!=i && k!=j && l!=i && l!=j && k!=l){
@@ -24,15 +23,15 @@ int main() {
                             int sum2 = arr[k] + arr[l];
                             int sum3 = sum - sum1 - sum2;
 
-                            ans = min(abs(sum1-sum2), abs(sum1-sum3));
-                            ans = min(ans, abs(sum2-sum3));
+                            // 세 팀 합 중 최대 - 최소 계산
+                            int big = max({sum1, sum2, sum3});
+                            int small = min({sum1, sum2, sum3});
+                            int diff = big - small;
 
+                            ans = min(ans, diff);
                         }
-
-
                     }
                 }
-
             }
         }
     }
