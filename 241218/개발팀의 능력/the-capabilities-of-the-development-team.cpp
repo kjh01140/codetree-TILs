@@ -24,7 +24,8 @@ int main() {
                             int sum3 = sum - sum1 - sum2;
 
                             if(sum1 != sum2 && sum2 != sum3 && sum3 != sum1){
-                                ans = 1000000;
+                                if(ans == -1)ans = 1000000;
+                                
                                 int big = max({sum1, sum2, sum3});
                                 int small = min({sum1, sum2, sum3});
                                 int diff = big - small;
