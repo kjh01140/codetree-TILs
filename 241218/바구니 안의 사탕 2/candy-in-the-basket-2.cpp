@@ -8,7 +8,7 @@ int ans = 0;
 int main() {
     int N, K;
     cin >> N >> K;
-    int size = K * 2 + 1; // 범위의 크기
+    
 
     for (int i = 0; i < N; i++) {
         int n, idx;
@@ -16,13 +16,12 @@ int main() {
         arr[idx] += n; // 입력되지 않은 좌표는 기본값 0
     }
 
-    // 기존 방식 유지
-    for (int i = 0; i <= 100 - size + 1; i++) { // 탐색 범위는 배열 전체(0~100)
+    for(int c=0; c<=100; c++){
         int sum = 0;
-        for (int j = 0; j < size; j++) {
-            sum += arr[i + j];
+        for(int j = max(0, c-K); j<=min(100, c+K); j++){
+            sum += arr[j];
         }
-        ans = max(ans, sum);
+        ans = max(sum , ans);
     }
 
     cout << ans << endl;
