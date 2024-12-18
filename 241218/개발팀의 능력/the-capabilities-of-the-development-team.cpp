@@ -4,7 +4,7 @@
 using namespace std;
 int arr[5];
 int sum = 0;  // 인수들의 총합
-int ans = 10000000;
+int ans = -1;
 
 int main() {
     for(int i=0; i<5; i++){
@@ -24,13 +24,12 @@ int main() {
                             int sum3 = sum - sum1 - sum2;
 
                             if(sum1 != sum2 && sum2 != sum3 && sum3 != sum1){
+                                ans = 1000000;
                                 int big = max({sum1, sum2, sum3});
                                 int small = min({sum1, sum2, sum3});
                                 int diff = big - small;
 
                                 ans = min(ans, diff);
-                            } else{
-                                ans = -1;
                             }
                             // 세 팀 합 중 최대 - 최소 계산
                             
