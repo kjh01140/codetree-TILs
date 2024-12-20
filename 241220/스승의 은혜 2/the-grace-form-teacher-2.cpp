@@ -15,8 +15,8 @@ int main() {
     
         
         for(int i=0; i<N; i++){ // 할인하는 학생 선정
-            bool check = true;int cnt=0;
-            while(check){
+            int cnt=0;
+            
                 int money = B;
                 cnt = 0;
                 for(int j=0; j<N; j++){
@@ -31,10 +31,10 @@ int main() {
 
                     if(money<0){
                         cnt--;
-                        check = false;
+                        break;
                     }
 
-                }
+             
                 
             }
             ans = max(ans, cnt);
