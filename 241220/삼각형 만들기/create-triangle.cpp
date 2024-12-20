@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
 using namespace std;
 
 int arr[100][2] = {};
@@ -16,9 +17,11 @@ int main() {
 
             for(int k=0; k<N; k++){
                 if(k==i || k==j) continue;
+                int area= 0;
                 if(arr[i][0] == arr[k][0] || arr[j][1] == arr[k][1]){
-                    ans = (arr[i][0]*arr[j][1] + arr[j][0]*arr[k][1] + arr[k][0]*arr[i][1]) - (arr[j][0]*arr[i][1] + arr[k][0]*arr[j][1] +arr[i][0]*arr[k][1]);
+                    area = (arr[i][0]*arr[j][1] + arr[j][0]*arr[k][1] + arr[k][0]*arr[i][1]) - (arr[j][0]*arr[i][1] + arr[k][0]*arr[j][1] +arr[i][0]*arr[k][1]);
                 }
+                ans = max(ans , area);
             }
         }
     }
