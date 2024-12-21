@@ -38,19 +38,16 @@ int main() {
         int money = B;
         for(int j=0; j<N; j++){
             if(j==i){
-                money-=presents[j].price/2;
-                money-=presents[j].deliver;
-                cnt++; // 선물받은 학생수                
+                 money -= presents[j].price / 2 + presents[j].deliver;
+                          
             } else{                    
-                money-=presents[j].price;
-                money-=presents[j].deliver;
-                cnt++; // 선물받은 학생수
+                money -= presents[j].price + presents[j].deliver;
+                
             }
 
-            if(money<0){
-                cnt--;
-                break;
-            }
+            if(money<0)break;
+            
+            cnt++;
         }
         ans = max(ans, cnt);
     }
