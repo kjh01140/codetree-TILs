@@ -38,13 +38,13 @@ int main() {
         int cnt = 0;     // 선물받은 학생 수
         int money = B;   // 남은 예산
 
-        presents[i].price /=2; //할인대상 미리 가격 조정 
+        presents[i].price /= 2; //할인대상 미리 가격 조정 
         sort(presents, presents+N, cmp);
 
+        int temp = 0;
         for(int j=0; j<N; j++){
-            money -= presents[j].price + presents[j].deliver;
-            if (money < 0) break;
-
+            temp += presents[j].price + presents[j].deliver;
+            if(temp > B) break;
             cnt++;
         }
 
