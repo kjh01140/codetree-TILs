@@ -15,7 +15,7 @@ class Present{
 };
 
 bool cmp(Present a, Present b){
-    return a.price + a.deliver < b.price + a.deliver ;
+    return a.price + a.deliver < b.price + b.deliver ;
 }
 
 
