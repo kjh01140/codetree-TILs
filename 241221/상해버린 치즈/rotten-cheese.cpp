@@ -19,6 +19,9 @@ int main() {
     for(int i=1; i<=S; i++) cin >> sick_time[i][0] >> sick_time[i][1]; // 아픈사람p, 확실히 아픈 시간t
     // 여기까지 입력 과정
 
+
+
+
     for(int i=1; i<=M; i++){ // 1번 치즈부터 M번 치즈까지 상했을 가능성을 순차 판단
         for(int j=1; j<=D; j++){ //eat_reord 루프로 확인
             if(eat_record[j][1]==i){ //i번째 치즈를 먹은 경우 
@@ -26,7 +29,9 @@ int main() {
                 bool check = true;
                 for(int k=1; k<=S; k++){ // 아픈사람이 i번째를 먹은 후 아픈게 맞는지 확인
                     if(eat_record[j][2] >= sick_time[k][1]) check = false; // 한 경우라도 먹기 전에 아프면 거짓
-                    if(check){// i번째 치즈가 가능성이 있으면, i번쩨 치즈를 먹은 사람 수를 모두 구해야함.
+                    
+                }
+                if(check){// i번째 치즈가 가능성이 있으면, i번쩨 치즈를 먹은 사람 수를 모두 구해야함.
                         int cnt = 0;
                         for(int l=1; l<=D; l++){
                             if(eat_record[l][1]==i) cnt++;
@@ -34,7 +39,6 @@ int main() {
                         ans = max(ans, cnt);
 
                     }
-                }
 
 
             }
