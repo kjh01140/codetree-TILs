@@ -15,13 +15,11 @@ class Present{
 };
 
 bool cmp(Present a, Present b){
-    return a.price < b.price;
+    return a.price + a.deliver < b.price + a.deliver ;
 }
 
 
 int N, B; 
-
-
 int ans = 0;
 
 int main() {
