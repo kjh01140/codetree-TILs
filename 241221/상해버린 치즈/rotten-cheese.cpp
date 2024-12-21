@@ -28,20 +28,23 @@ int main() {
         for(int k=1; k<=S; k++){ //  아픈 사람 판단
             int person = sick_time[k][0];
             int time_sick = sick_time[k][1];
-            bool found = false; // 해당 치즈를 먹은 기록 발견
+            bool ate_before_sick = false; // 해당 치즈를 먹은 기록 발견
 
             for(int j=1; j<=D; j++){
                 if(eat_record[j][1] == i && eat_record[j][0] == person){
-                    if(eat_record[j][2] >= time_sick){
-                        possible = false;
+                    if(eat_record[j][2] < time_sick){
+                        ate_before_sick = true;
                     } else {
-                        found = true;
+                        possible = false;
+                        break;
                     }
                 }
             }
 
-            if(!found) possible = false;
-            if(!possible) break;
+            if (!ate_before_sick) {
+                possible= false;
+                break;
+            }
         }
         if (possible) { // 가능한 치즈라면 먹은 사람 수 계산
             int cnt = 0;
