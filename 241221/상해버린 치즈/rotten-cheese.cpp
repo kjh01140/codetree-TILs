@@ -22,7 +22,7 @@ int main() {
 
     // 각 치즈를 순회하며 확인
     for (int cheese = 1; cheese <= M; cheese++) {
-        bool is_possible = true;
+        bool is_possible = true; // 상한 가능성
 
         // 모든 아픈 사람에 대해 확인
         for (int s = 0; s < S; s++) {
