@@ -24,13 +24,23 @@ void Func() {
         }
     }
 
+    // 유효한 첫 세 값을 찾지 못했을 경우
+    cout << "No valid arrangement possible." << endl;
+    return;
+
 FillRemaining:
     // 나머지 값 계산
     for (int i = 3; i < n; i++) {
         arr[i] = adjacent[i - 1] - arr[i - 1];
+
         // 중복 또는 범위를 벗어나는 값이 나오면 처리
+        if (arr[i] < 1 || arr[i] > n) {
+            cout << "No valid arrangement possible." << endl;
+            return;
+        }
+
         for (int j = 0; j < i; j++) {
-            if (arr[i] == arr[j] || arr[i] < 1 || arr[i] > n) {
+            if (arr[i] == arr[j]) { // 중복 확인
                 cout << "No valid arrangement possible." << endl;
                 return;
             }
