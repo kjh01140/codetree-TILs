@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include <cstring> // memset 사용
 using namespace std;
 
