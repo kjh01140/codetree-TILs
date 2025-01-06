@@ -1,29 +1,27 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // min, max 사용
+#include <algorithm> // min, max 사용을 위해 포함
 
 using namespace std;
 
 int N;
 string seat;
-int max_min_dist = 0;
+int max_dist = 0;
 
-// 현재 배치에서 가장 가까운 두 사람 사이의 최소 거리 계산
+// 현재 배치에서 최소 거리 계산 함수
 int Dist() {
-    int min_dist = 100; // 충분히 큰 값으로 초기화
-    int prev = -1; // 이전 사람의 좌석 인덱스
+    int dist = 100; // 충분히 큰 값으로 초기화
+    int prev = -1;
 
-    for (int i = 0; i < N; i++) {
-        if (seat[i] == '1') {
-            if (prev != -1) {
-                // 이전 사람과 현재 사람 사이의 거리 계산
-                min_dist = min(min_dist, i - prev);
+    for(int i=0; i<N; i++){
+        if(seat[i]=='1'){
+            if(prev != -1){
+                dist = min(dist, i - prev);
             }
-            prev = i; // 현재 사람을 이전 사람으로 업데이트
+            prev = i; 
         }
     }
-
-    return min_dist; // 가장 가까운 두 사람 사이의 최소 거리
+    return dist;
 }
 
 int main() {
@@ -34,20 +32,20 @@ int main() {
     for (int i = 0; i < N; i++) {
         for (int j = i + 1; j < N; j++) {
             if (seat[i] == '0' && seat[j] == '0') {
-                // 두 좌석에 사람을 배치
+                // 두 좌석을 임시로 채운다
                 seat[i] = '1';
                 seat[j] = '1';
 
-                // 현재 배치에서 가장 가까운 두 사람 간의 거리 계산
-                max_min_dist = max(max_min_dist, Dist());
+                // 현재 배치에서 최소 거리를 계산
+                max_dist = max(max_dist, Dist());
 
-                // 좌석 상태 복구
+                // 복구
                 seat[i] = '0';
                 seat[j] = '0';
             }
         }
     }
 
-    cout << max_min_dist; // 결과 출력
+    cout << max_dist; // 최종 결과 출력
     return 0;
 }
